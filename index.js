@@ -1,11 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const { inherits } = require('util');
-// const newHTML = require('./src/newHTML.js');
+const newHTML = require('./src/createHTML.js');
 
 const listOfEmployee = [];
 
@@ -76,6 +75,9 @@ function createInput() {
                 output.office_Number
             );
             listOfEmployee.push(newManager);
+            console.log(listOfEmployee)
+            console.log(newManager)
+            console.log(newManager.getName())
             newEmployee();
         })
 }
@@ -147,6 +149,7 @@ function newEngineer() {
             output.engineer_gitHub,
         )
         listOfEmployee.push(newEngineer);
+        console.log(listOfEmployee)
         newEmployee();
     })
 }
@@ -182,6 +185,7 @@ function newIntern() {
                         return true;
                     }
                 }
+            },
             {
                 type: 'input',
                 name: 'intern_Email',
@@ -217,6 +221,7 @@ function newIntern() {
                 output.intern_School
             )
             listOfEmployee.push(newIntern)
+            console.log(listOfEmployee)
             newEmployee();
         })
 }
@@ -246,5 +251,43 @@ function newEmployee() {
         });
 }
 
+function generateFile(output) {
+    const outputData = createHTML(output)
+    return outputData
+}
+function generate(output) {
+    fs.writeFile('.dist/index.html', output, err => {
+        if(err) {
+            console.log(err);
+    return;
+}else {
+    console.log('Success!')
+}
+})
+}
+
+function init() {
+    console.log(listOfEmployee)
+    inquirer
+    .prompt([
+            {
+                type: 'list',
+                name: 'final',
+                message: 'Please confirm your Team Members:',
+                choices: ["Confirm", "Add More"]
+            },
+        ])
+        .then((output) => {
+            switch(output.final) {
+                case "Confirm":
+                    generateFile(listOfEmployee)
+                    generate(outputData)
+                    break;
+                case "Add More":
+                    newEmployee();
+                    break;
+                }
+            })
+        }
 
 createInput();
