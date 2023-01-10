@@ -250,13 +250,8 @@ function newEmployee() {
             }
         });
 }
-
-function generateFile(output) {
-    const outputData = createHTML(output)
-    return outputData
-}
 function generate(output) {
-    fs.writeFile('.dist/index.html', output, err => {
+    fs.writeFile('./dist/index.html', output.join(''), err => {
         if(err) {
             console.log(err);
     return;
@@ -274,20 +269,153 @@ function init() {
                 type: 'list',
                 name: 'final',
                 message: 'Please confirm your Team Members:',
-                choices: ["Confirm", "Add More"]
+                choices: ["Confirm", "Add More", "Delete Member"]
             },
         ])
         .then((output) => {
             switch(output.final) {
                 case "Confirm":
-                    generateFile(listOfEmployee)
-                    generate(outputData)
+                    generate(createHTML(listOfEmployee))
                     break;
                 case "Add More":
                     newEmployee();
                     break;
+                case "Delete Member":
+                    deleteEmployee();
+                    break;
                 }
             })
-        }
+    }
+    
 
+function createHTML(listOfEmployee) {
+    const pageContent = [];
+const HTMLheader =
+`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.20/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Team Profile</title>
+</head>
+<body>
+    <nav class="uk-navbar-container uk-width-expand" uk-navbar="align: center">
+        <div class="uk-navbar-center">
+    
+            <ul class="uk-navbar-nav uk-text-bold">
+                <li>
+                    <a class="uk-text-bold" href="#">Team Profile</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li class="uk-active"><a href="#">Team Profile</a></li>
+                            <li class="uk-nav-header">cards</li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">Manager</a></li>
+                            <li><a href="#">Engineer</a></li>
+                            <li><a href="#">Intern</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    </head>
+    <div class="uk-container uk-container-expand uk-padding-large uk-flex uk-flex-around uk-flex-center uk-flex-wrap-reverse" uk-container="align: center">
+    <!-- ADD EMPLOYEE CARDS HERE -->
+    ` 
+pageContent.push(HTMLheader)
+    //Manager
+    const managerCard = 
+    `
+    <div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
+    <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-expand">
+                <h3 class="uk-card-title uk-margin-remove-bottom">${Manager.name}</h3>
+                <p class="uk-text-meta uk-margin-remove-top"><time> &#9819; Manager</time></p>
+            </div>
+        </div>
+    </div>
+    <div class="uk-card-body">
+        <p>ID: ${Manager.ID}</p>
+        <hr class="uk-divider-icon">
+        <p>Email: ${Manager.email}</p>
+        <hr class="uk-divider-icon">
+        <p>Office Number: ${Manager.officeNum}</p>
+        <hr class="uk-divider-icon">
+        </div>
+</div>
+`
+// Engineer Card
+const engineerCard = 
+`
+<div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
+<div class="uk-card-header">
+    <div class="uk-grid-small uk-flex-middle" uk-grid>
+        <div class="uk-width-expand">
+            <h3 class="uk-card-title uk-margin-remove-bottom">${Engineer.name}</h3>
+            <p class="uk-text-meta uk-margin-remove-top"><time> &#9816; Engineer</time></p>
+        </div>
+    </div>
+</div>
+<div class="uk-card-body">
+    <p>ID: ${Engineer.ID}</p>
+    <hr class="uk-divider-icon">
+    <p>Email: ${Engineer.email}</p>
+    <hr class="uk-divider-icon">
+    <p>GitHub: ${Engineer.gitHub}</p>
+    <hr class="uk-divider-icon">
+</div>
+</div>
+`
+// Intern Card
+const internCard =
+`
+<div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
+<div class="uk-card-header">
+    <div class="uk-grid-small uk-flex-middle" uk-grid>
+        <div class="uk-width-expand">
+            <h3 class="uk-card-title uk-margin-remove-bottom">${Intern.name}</h3>
+            <p class="uk-text-meta uk-margin-remove-top"><time> &#9817; Intern </time></p>
+        </div>
+    </div>
+</div>
+<div class="uk-card-body">
+    <p>ID: ${Intern.ID}</p>
+    <hr class="uk-divider-icon">
+    <p>Email: ${Intern.email}</p>
+    <hr class="uk-divider-icon">
+    <p>School: ${Intern.school}</p>
+    <hr class="uk-divider-icon">
+</div>
+</div>
+`
+const closer = 
+    `
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.20/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.20/dist/js/uikit-icons.min.js"></script>
+</html>
+`
+for(i = 0; i < listOfEmployee.length; i++){
+    switch(listOfEmployee[i].role){ 
+        case "Manager":
+            pageContent.push(managerCard)
+            break;
+        case "Engineer":
+            pageContent.push(engineerCard)
+            break;
+        case "Intern":
+            pageContent.push(internCard)
+            break;
+    }
+}
+pageContent.push(closer)
+return pageContent
+}
 createInput();

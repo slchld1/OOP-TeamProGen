@@ -44,60 +44,8 @@ function baseHTML(Employee) {
         </nav>
         </head>
         <div class="uk-container uk-container-expand uk-padding-large uk-flex uk-flex-around uk-flex-center uk-flex-wrap-reverse" uk-container="align: center">
-        <div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
-        </div>
-        <div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
-        </div>
-        <div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
-        </div>
-        <div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
-        </div>
+        <!-- ADD EMPLOYEE CARDS HERE -->
+        
         </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.20/dist/js/uikit.min.js"></script>
@@ -113,13 +61,18 @@ function managerCard(newManager) {
         <div class="uk-grid-small uk-flex-middle" uk-grid>
             <div class="uk-width-expand">
                 <h3 class="uk-card-title uk-margin-remove-bottom">${newManager.getName()}</h3>
-                <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                <p class="uk-text-meta uk-margin-remove-top"><time> &#9819; ${newManager.getRole()}</time></p>
             </div>
         </div>
     </div>
     <div class="uk-card-body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-    </div>
+        <p>ID: ${newManager.getID()}</p>
+        <hr class="uk-divider-icon">
+        <p>Email: ${newManager.getEmail()}</p>
+        <hr class="uk-divider-icon">
+        <p>Office Number: ${newManager.getOfficeNum()}</p>
+        <hr class="uk-divider-icon">
+        </div>
 </div>
 `
 }
