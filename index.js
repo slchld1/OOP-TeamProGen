@@ -268,7 +268,7 @@ function init() {
                 type: 'list',
                 name: 'final',
                 message: 'Please confirm your Team Members:',
-                choices: ["Confirm", "Add More", "Delete Member"]
+                choices: ["Confirm", "Add More"]
             },
         ])
         .then((output) => {
@@ -279,14 +279,11 @@ function init() {
                 case "Add More":
                     newEmployee();
                     break;
-                case "Delete Member":
-                    deleteEmployee();
-                    break;
                 }
             })
     }
     
-
+// Creating the HTML PAGE
 function createHTML(listOfEmployee) {
     const pageContent = [];
 const HTMLheader =
@@ -336,6 +333,7 @@ const closer =
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.20/dist/js/uikit-icons.min.js"></script>
 </html>
 `
+// We loop through our array and add each employee card
 for(i = 0; i < listOfEmployee.length; i++){
     switch(listOfEmployee[i].role){ 
         case "Manager":
