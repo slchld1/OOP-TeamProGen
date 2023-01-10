@@ -3,18 +3,26 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "directories": {
+        "lib": "lib"
+    },
     "scripts": {
-        "start": "node index",
-        "watch": "nodemon index",
         "test": "jest"
     },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "chalk": "^2.4.1",
-        "inquirer": "8.2.4"
+    "repository": {
+        "type": "git",
+        "url": ""
     },
+    "author": "Minjae Cho",
+    "license": "ISC",
+    "bugs": {
+        "url": ""
+    },
+    "homepage": "",
     "devDependencies": {
-        "jest": "^24.8.0"
+        "jest": "^^24.8.0"
+    },
+    "dependencies": {
+        "inquirer": "^8.2.4"
     }
 }
