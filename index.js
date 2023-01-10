@@ -4,7 +4,6 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const { inherits } = require('util');
-const newHTML = require('./src/createHTML.js');
 
 const listOfEmployee = [];
 
@@ -189,7 +188,7 @@ function newIntern() {
             {
                 type: 'input',
                 name: 'intern_Email',
-                massage: "What is the Intern's Email?",
+                message: "What is the Intern's Email?",
                 validate: entry =>{
                     if(entry === 0) {
                         console.log("Email is required!")
@@ -328,72 +327,7 @@ const HTMLheader =
     <!-- ADD EMPLOYEE CARDS HERE -->
     ` 
 pageContent.push(HTMLheader)
-    //Manager
-    const managerCard = 
-    `
-    <div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
-    <div class="uk-card-header">
-        <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-expand">
-                <h3 class="uk-card-title uk-margin-remove-bottom">${Manager.name}</h3>
-                <p class="uk-text-meta uk-margin-remove-top"><time> &#9819; Manager</time></p>
-            </div>
-        </div>
-    </div>
-    <div class="uk-card-body">
-        <p>ID: ${Manager.ID}</p>
-        <hr class="uk-divider-icon">
-        <p>Email: ${Manager.email}</p>
-        <hr class="uk-divider-icon">
-        <p>Office Number: ${Manager.officeNum}</p>
-        <hr class="uk-divider-icon">
-        </div>
-</div>
-`
-// Engineer Card
-const engineerCard = 
-`
-<div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
-<div class="uk-card-header">
-    <div class="uk-grid-small uk-flex-middle" uk-grid>
-        <div class="uk-width-expand">
-            <h3 class="uk-card-title uk-margin-remove-bottom">${Engineer.name}</h3>
-            <p class="uk-text-meta uk-margin-remove-top"><time> &#9816; Engineer</time></p>
-        </div>
-    </div>
-</div>
-<div class="uk-card-body">
-    <p>ID: ${Engineer.ID}</p>
-    <hr class="uk-divider-icon">
-    <p>Email: ${Engineer.email}</p>
-    <hr class="uk-divider-icon">
-    <p>GitHub: ${Engineer.gitHub}</p>
-    <hr class="uk-divider-icon">
-</div>
-</div>
-`
-// Intern Card
-const internCard =
-`
-<div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
-<div class="uk-card-header">
-    <div class="uk-grid-small uk-flex-middle" uk-grid>
-        <div class="uk-width-expand">
-            <h3 class="uk-card-title uk-margin-remove-bottom">${Intern.name}</h3>
-            <p class="uk-text-meta uk-margin-remove-top"><time> &#9817; Intern </time></p>
-        </div>
-    </div>
-</div>
-<div class="uk-card-body">
-    <p>ID: ${Intern.ID}</p>
-    <hr class="uk-divider-icon">
-    <p>Email: ${Intern.email}</p>
-    <hr class="uk-divider-icon">
-    <p>School: ${Intern.school}</p>
-    <hr class="uk-divider-icon">
-</div>
-</div>
-`
+// Closer
 const closer = 
     `
     </div>
@@ -405,13 +339,75 @@ const closer =
 for(i = 0; i < listOfEmployee.length; i++){
     switch(listOfEmployee[i].role){ 
         case "Manager":
-            pageContent.push(managerCard)
+            pageContent.push(
+            `
+            <div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
+            <div class="uk-card-header">
+                <div class="uk-grid-small uk-flex-middle" uk-grid>
+                    <div class="uk-width-expand">
+                        <h3 class="uk-card-title uk-margin-remove-bottom">${listOfEmployee[i].name}</h3>
+                        <p class="uk-text-meta uk-margin-remove-top"><time> &#9819; Manager</time></p>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-card-body uk-text-break">
+                <p>ID: ${listOfEmployee[i].ID}</p>
+                <hr class="uk-divider-icon">
+                <p>Email: ${listOfEmployee[i].email}</p>
+                <hr class="uk-divider-icon">
+                <p>Office Number: ${listOfEmployee[i].officeNum}</p>
+                <hr class="uk-divider-icon">
+                </div>
+        </div>
+        `)
             break;
         case "Engineer":
-            pageContent.push(engineerCard)
+            pageContent.push(
+                `
+                <div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
+                <div class="uk-card-header">
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                        <div class="uk-width-expand">
+                            <h3 class="uk-card-title uk-margin-remove-bottom">${listOfEmployee[i].name}</h3>
+                            <p class="uk-text-meta uk-margin-remove-top"><time> &#9816; Engineer</time></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-card-body uk-text-break">
+                    <p>ID: ${listOfEmployee[i].ID}</p>
+                    <hr class="uk-divider-icon">
+                    <p>Email: ${listOfEmployee[i].email}</p>
+                    <hr class="uk-divider-icon">
+                    <p>GitHub: ${listOfEmployee[i].gitHub}</p>
+                    <hr class="uk-divider-icon">
+                </div>
+                </div>
+                `
+                )
             break;
         case "Intern":
-            pageContent.push(internCard)
+            pageContent.push(
+                `
+                <div class="uk-card uk-card-default uk-width-1-5@m uk-height-large uk-margin-small-top">
+                <div class="uk-card-header">
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                        <div class="uk-width-expand">
+                            <h3 class="uk-card-title uk-margin-remove-bottom">${listOfEmployee[i].name}</h3>
+                            <p class="uk-text-meta uk-margin-remove-top"><time> &#9817; Intern </time></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-card-body uk-text-break">
+                    <p>ID: ${listOfEmployee[i].ID}</p>
+                    <hr class="uk-divider-icon">
+                    <p>Email: ${listOfEmployee[i].email}</p>
+                    <hr class="uk-divider-icon">
+                    <p>School: ${listOfEmployee[i].school}</p>
+                    <hr class="uk-divider-icon">
+                </div>
+                </div>
+                `
+            )
             break;
     }
 }
