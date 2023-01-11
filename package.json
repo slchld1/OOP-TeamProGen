@@ -1,7 +1,7 @@
 {
     "name": "Team_Profile_Generator",
     "version": "1.0.0",
-    "description": "",
+    "description": "HTML generator for your team",
     "main": "index.js",
     "directories": {
         "lib": "lib"
@@ -11,14 +11,14 @@
     },
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/slchld1/OOP-TeamProGen"
     },
     "author": "Minjae Cho",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
-        "url": ""
+        "url": "https://github.com/slchld1"
     },
-    "homepage": "",
+    "homepage": "https://www.npmjs.com/package/jest",
     "devDependencies": {
         "jest": "^^24.8.0"
     },
