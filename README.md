@@ -35,8 +35,8 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 ~~~
 ## Table of Contents 🔍
-* [Installation](#installation)
-* [Usage](#usage)
+* [Installation](#installation🔨)
+* [Usage](#usage💡)
 * [Questions](#questions)
 * [License](#license)
 ## Installation 🔨
