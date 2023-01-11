@@ -351,7 +351,7 @@ for(i = 0; i < listOfEmployee.length; i++){
             <div class="uk-card-body uk-text-break">
                 <p>ID: ${listOfEmployee[i].ID}</p>
                 <hr class="uk-divider-icon">
-                <p>Email: ${listOfEmployee[i].email}</p>
+                <p>Email: <a href="mailto: ${listOfEmployee[i].email}">${listOfEmployee[i].email}</a></p>
                 <hr class="uk-divider-icon">
                 <p>Office Number: ${listOfEmployee[i].officeNum}</p>
                 <hr class="uk-divider-icon">
@@ -374,9 +374,9 @@ for(i = 0; i < listOfEmployee.length; i++){
                 <div class="uk-card-body uk-text-break">
                     <p>ID: ${listOfEmployee[i].ID}</p>
                     <hr class="uk-divider-icon">
-                    <p>Email: ${listOfEmployee[i].email}</p>
+                    <p>Email: <a href="mailto: ${listOfEmployee[i].email}">${listOfEmployee[i].email}</a></p>
                     <hr class="uk-divider-icon">
-                    <p>GitHub: ${listOfEmployee[i].gitHub}</p>
+                    <p>GitHub: <a href="https://github.com/${listOfEmployee[i].gitHub}">${listOfEmployee[i].gitHub}</a></p>
                     <hr class="uk-divider-icon">
                 </div>
                 </div>
@@ -398,7 +398,7 @@ for(i = 0; i < listOfEmployee.length; i++){
                 <div class="uk-card-body uk-text-break">
                     <p>ID: ${listOfEmployee[i].ID}</p>
                     <hr class="uk-divider-icon">
-                    <p>Email: ${listOfEmployee[i].email}</p>
+                    <p>Email: <a href="mailto: ${listOfEmployee[i].email}">${listOfEmployee[i].email}</a></p>
                     <hr class="uk-divider-icon">
                     <p>School: ${listOfEmployee[i].school}</p>
                     <hr class="uk-divider-icon">
