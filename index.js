@@ -376,7 +376,7 @@ for(i = 0; i < listOfEmployee.length; i++){
                     <hr class="uk-divider-icon">
                     <p>Email: <a href="mailto: ${listOfEmployee[i].email}">${listOfEmployee[i].email}</a></p>
                     <hr class="uk-divider-icon">
-                    <p>GitHub: <a href="https://github.com/${listOfEmployee[i].gitHub}">${listOfEmployee[i].gitHub}</a></p>
+                    <p>GitHub: <a href="https://github.com/${listOfEmployee[i].gitHub}" target="_blank">${listOfEmployee[i].gitHub}</a></p>
                     <hr class="uk-divider-icon">
                 </div>
                 </div>
