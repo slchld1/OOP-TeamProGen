@@ -57,8 +57,9 @@ Answer the following questions prompt in the command line,
 
 After answering, an `index.html` file will be generated in the `./dist` folder.
 ## Usage 💡
-![Gif demo of Team-Profile-Generator]()
-![Gif demo of Team-Profile-Generator]()
+![Gif demo of Team-Profile-Generator](/oop_gif1.gif)
+![Gif demo of Team-Profile-Generator](/oop_gif2.gif)
+![Gif demo of Team-Profile-Generator](/oop_gif3.gif)
 
 
 ## License
