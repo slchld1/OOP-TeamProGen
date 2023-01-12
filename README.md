@@ -7,7 +7,9 @@
 </p>
 
 ## Description 💾
+Congratulations! you now have team! Therefore, in order to stay organized you need to build a webpage with your team members profile. On second thought, building a webpage with manual input will be too time consuming, but fear not, there is a team profile generator!
 
+This generator uses `node.js` to create a webpage in minutes, and creates cards for each employee to have instant access to their emails or GitHub profiles with neat and organized design.
 ## User Story ✉️
 ~~~
 AS A manager
@@ -58,9 +60,16 @@ Answer the following questions prompt in the command line,
 After answering, an `index.html` file will be generated in the `./dist` folder.
 ## Usage 💡
 ![Gif demo of Team-Profile-Generator](/oop_gif1.gif)
-![Gif demo of Team-Profile-Generator](/oop_gif2.gif)
+
+Must enter `node index` or `node index.js` to start the application, then you will be prompted with questions on each employee's information.
+
+![Gif demo of Team-Profile-Generator](/oop_gif2.gif)\
+
+You will be prompted to select the desired role of your new employee upon finishing your previous employee card.
+
 ![Gif demo of Team-Profile-Generator](/oop_gif3.gif)
 
+When command line returns `Success!` the newly created index.html file can be found in the `dist` folder.
 
 ## License
 MIT License
